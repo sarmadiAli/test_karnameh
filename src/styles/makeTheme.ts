@@ -69,84 +69,40 @@ const makeTheme = (): { theme: Theme } => {
       fontFamily: ['iransans', 'sans-serif'].join(','),
       fontSize: 16,
       htmlFontSize: 16,
-      fontWeightLight: 700,
-      fontWeightMedium: 700,
-      fontWeightRegular: 700,
+      fontWeightRegular: 400,
       fontWeightBold: 700,
 
       [createdBreakpoints.down('md')]: {
         fontSize: 14,
         htmlFontSize: 14,
       },
-
-      h1: {
-        ...createFontSize(32, 24),
-        fontWeight: 700,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
-      h2: {
-        ...createFontSize(28, 20),
-        fontWeight: 500,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
-      h3: {
-        ...createFontSize(27, 20),
-        fontWeight: 500,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
-      h4: {
-        ...createFontSize(26, 19),
-        fontWeight: 500,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
-      h5: {
-        ...createFontSize(25, 19),
-        fontWeight: 500,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
-      h6: {
-        ...createFontSize(24, 18),
-        fontWeight: 500,
-        lineHeight: 1.2,
-        color: '#1C1B20',
-      },
       subtitle1: {
         ...createFontSize(24, 18),
-        fontWeight: 500,
-        color: '#1C1B20',
+        fontWeight: 800,
       },
       subtitle2: {
-        ...createFontSize(20, 16),
-        fontWeight: 500,
-        color: '#1C1B20',
+        ...createFontSize(16, 14),
+        fontWeight: 700,
       },
       body1: {
-        ...createFontSize(18, 16),
+        ...createFontSize(14, 12),
         fontWeight: 400,
         lineHeight: 1.8,
       },
       body2: {
-        ...createFontSize(16, 14),
-        fontWeight: 400,
+        ...createFontSize(24, 14),
         lineHeight: 1.8,
         color: '#1C1B2066',
       },
       caption: {
-        fontSize: 14,
-        fontWeight: 400,
-        color: '#1C1B2066',
-      },
-      overline: {
         fontSize: 12,
         fontWeight: 400,
-        color: '#1C1B2066',
+        color: '#777',
       },
-      button: { ...createFontSize(16, 14), fontWeight: 700 },
+      h6: {
+        fontSize: 12,
+        fontWeight: 700,
+      },
     },
     shape: {
       borderRadius: 2,
@@ -164,6 +120,17 @@ const makeTheme = (): { theme: Theme } => {
       keys: ['xs', 'sm', 'md', 'lg', 'xl'],
       values: breakpoints,
     },
+    components: {
+      MuiFormLabel: {
+        styleOverrides: {
+          root: {
+            color: '#454545',
+            fontWeight: 700,
+            fontSize: '12px',
+          },
+        },
+      },
+    },
   });
   theme = createTheme(theme, {
     components: {
@@ -172,7 +139,7 @@ const makeTheme = (): { theme: Theme } => {
           root: {
             direction: 'ltr',
             textAlign: 'left',
-            fontWeight: 700,
+            // fontWeight: 700,
           },
         },
       },
@@ -188,6 +155,25 @@ const makeTheme = (): { theme: Theme } => {
           },
           contained: {
             color: '#fff',
+          },
+        },
+      },
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            // this is styles for the new variants
+            '&.karnameTextFeild': {
+              background: '#fff',
+              borderRadius: '6px',
+              '& input': {
+                padding: '12px 16px',
+              },
+              '& fieldset': {
+                borderRadius: '6px',
+                borderWidth: '1px !important',
+                borderColor: '#e4e9ec !important',
+              },
+            },
           },
         },
       },

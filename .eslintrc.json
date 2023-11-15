@@ -11,6 +11,8 @@
     ],
     "quotes": ["error", "single"],
     "no-console": "error",
-    "@typescript-eslint/no-explicit-any": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "no-use-before-define": "off",
+    "no-unused-vars": "error"
   }
 }

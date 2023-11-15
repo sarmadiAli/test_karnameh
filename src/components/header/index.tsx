@@ -4,15 +4,20 @@ import { Button, Grid, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Image from 'next/image';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useRouter } from 'next/router';
-export default function HeaderComponent({ title }: { title: string }) {
-  const router = useRouter();
+// import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
+const CodeSampleModal = dynamic(() => import('src/components/createQuestion'), {
+  ssr: false,
+});
+export default function HeaderComponent({ title }: { title: string }) {
+  // const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
   return (
     <StyledBox>
       <Grid container className="headerContainer" alignItems={'center'}>
         <Grid item xs={8}>
-          <Typography variant="h6" component={'h3'}>
+          <Typography variant="subtitle1" component={'h3'}>
             {title}
           </Typography>
         </Grid>
@@ -25,10 +30,11 @@ export default function HeaderComponent({ title }: { title: string }) {
         >
           <Grid item xs={5}>
             <Button
-              sx={{ padding: '8px 26px' }}
+              fullWidth
               variant="contained"
               onClick={() => {
-                router.push('/question/2', undefined, { shallow: true });
+                // router.push('/question/2', undefined, { shallow: true });
+                setIsModalOpen(true);
               }}
               color="primary"
               startIcon={<AddIcon sx={{ marginRight: '10px' }} />}
@@ -39,11 +45,11 @@ export default function HeaderComponent({ title }: { title: string }) {
           <Grid container item xs={7} justifyContent={'flex-end'}>
             <Image
               src="/static/assets/img/alisarmadi.png"
-              width={60}
-              height={60}
+              width={44}
+              height={44}
               style={{
                 borderRadius: '44px',
-                border: '3px solid  #E4E9EC',
+                border: '2px solid  #E4E9EC',
                 marginLeft: '8px',
               }}
               alt="Picture of the author"
@@ -59,6 +65,12 @@ export default function HeaderComponent({ title }: { title: string }) {
           </Grid>
         </Grid>
       </Grid>
+      {isModalOpen && (
+        <CodeSampleModal
+          isOpen={isModalOpen}
+          closeModal={() => setIsModalOpen(false)}
+        />
+      )}
     </StyledBox>
   );
 }

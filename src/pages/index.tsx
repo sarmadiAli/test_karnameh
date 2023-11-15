@@ -1,5 +1,5 @@
-import { Button } from '@mui/material';
 import Head from 'next/head';
+import QuestionCard from 'src/components/Cards/questionCard';
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
           content="width=device-width, initial-scale=1.0, user-scalable=0"
         />
       </Head>
-      <div>ali</div>
+      <QuestionCard />
     </>
   );
 }
