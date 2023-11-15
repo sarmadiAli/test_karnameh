@@ -7,7 +7,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 // import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
-const CodeSampleModal = dynamic(() => import('src/components/createQuestion'), {
+const CodeSampleModal = dynamic(() => import('../createQuestion'), {
   ssr: false,
 });
 export default function HeaderComponent({ title }: { title: string }) {

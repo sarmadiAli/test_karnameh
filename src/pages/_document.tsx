@@ -8,7 +8,7 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import React from 'react';
-import createEmotionCache from 'src/createEmotionCache';
+import createEmotionCache from './../createEmotionCache';
 
 export default function MyDocument() {
   return (

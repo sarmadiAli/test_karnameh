@@ -1,20 +1,20 @@
 import React from 'react';
-import createEmotionCache from 'src/createEmotionCache';
 import type { AppProps } from 'next/app';
 import { CacheProvider, ThemeProvider } from '@emotion/react';
-import makeTheme from 'src/styles/makeTheme';
 import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { CssBaseline } from '@mui/material';
 import './../styles/globals.css';
 import App from 'next/app';
-import HeaderComponent from 'src/components/header';
 import {
   Hydrate,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import createEmotionCache from '../createEmotionCache';
+import makeTheme from '../styles/makeTheme';
+import HeaderComponent from '../components/header';
 
 const clientSideEmotionCache = createEmotionCache();
 
