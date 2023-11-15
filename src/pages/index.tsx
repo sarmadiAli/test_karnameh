@@ -1,8 +1,8 @@
-import QuestionCard from 'src/components/Cards/questionCard';
 import { dehydrate, QueryClient } from '@tanstack/react-query';
-import { getPosts } from 'src/services';
-import usePosts from 'src/hooks/useQuestions';
 import { Grid } from '@mui/material';
+import usePosts from '../hooks/useQuestions';
+import { getPosts } from '../services';
+import QuestionCard from '../components/Cards/questionCard';
 function Home() {
   const { data, isLoading } = usePosts();
   if (isLoading) return <div>Loading</div>;
