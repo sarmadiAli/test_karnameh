@@ -11,15 +11,15 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import createEmotionCache from '../createEmotionCache';
 import makeTheme from '../styles/makeTheme';
 import HeaderComponent from '../components/header';
+const queryClient = new QueryClient();
 
 const clientSideEmotionCache = createEmotionCache();
 
 interface CustomAppProps extends AppProps {
-  pageConfig: {
+  pageConfig?: {
     headerTitle: string;
   };
 }
@@ -33,7 +33,7 @@ export default function MyApp({
     key: 'muirtl',
     stylisPlugins: [rtlPlugin],
   });
-  const [queryClient] = React.useState(() => new QueryClient());
+  // const [queryClient] = React.useState(() => new QueryClient());
 
   return (
     <CacheProvider value={{ ...clientSideEmotionCache, ...cacheRtl }}>
@@ -46,7 +46,6 @@ export default function MyApp({
               <Component {...pageProps} />
             </main>
           </Hydrate>
-          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </ThemeProvider>
     </CacheProvider>

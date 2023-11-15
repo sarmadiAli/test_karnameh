@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 const CodeSampleModal = dynamic(() => import('../createQuestion'), {
   ssr: false,
 });
-export default function HeaderComponent({ title }: { title: string }) {
+export default function HeaderComponent({ title }: { title?: string }) {
   // const router = useRouter();
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   return (
