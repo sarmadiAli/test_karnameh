@@ -5,7 +5,7 @@ const breakpoints = {
   xs: 0,
   sm: 600,
   md: 1024,
-  lg: 1280,
+  lg: 1366,
   xl: 1920,
 };
 
@@ -24,7 +24,7 @@ const makeTheme = (): { theme: Theme } => {
         main: '#27AE60',
       },
       secondary: {
-        main: '#46314E',
+        main: '#9CAEBB',
       },
       warning: {
         main: '#FFA24C',
@@ -38,6 +38,7 @@ const makeTheme = (): { theme: Theme } => {
         main: '#2196f3',
         dark: '#2145FF',
       },
+
       success: {
         main: '#37B86D',
       },
@@ -68,7 +69,9 @@ const makeTheme = (): { theme: Theme } => {
       fontFamily: ['iransans', 'sans-serif'].join(','),
       fontSize: 16,
       htmlFontSize: 16,
-      fontWeightRegular: 400,
+      fontWeightLight: 700,
+      fontWeightMedium: 700,
+      fontWeightRegular: 700,
       fontWeightBold: 700,
 
       [createdBreakpoints.down('md')]: {
@@ -126,7 +129,6 @@ const makeTheme = (): { theme: Theme } => {
         ...createFontSize(18, 16),
         fontWeight: 400,
         lineHeight: 1.8,
-        color: '#1C1B20B2',
       },
       body2: {
         ...createFontSize(16, 14),
@@ -170,6 +172,7 @@ const makeTheme = (): { theme: Theme } => {
           root: {
             direction: 'ltr',
             textAlign: 'left',
+            fontWeight: 700,
           },
         },
       },
@@ -177,44 +180,14 @@ const makeTheme = (): { theme: Theme } => {
         styleOverrides: {
           root: {
             textTransform: 'none',
-            padding: '0.875rem 2rem',
+            padding: '8px 21px',
+            borderRadius: '6px',
             '&.Mui-disabled': {
               color: theme.palette.primary.main,
             },
           },
           contained: {
             color: '#fff',
-          },
-        },
-      },
-      MuiCheckbox: {
-        styleOverrides: {
-          root: {
-            color: theme.palette.primary.main,
-          },
-        },
-      },
-      MuiAccordion: {
-        styleOverrides: {
-          root: {
-            border: 'none',
-            padding: '0.5rem 0',
-            boxShadow: 'none',
-            borderRadius: 0,
-            '&.Mui-expanded': {
-              margin: 0,
-            },
-          },
-        },
-      },
-      MuiPagination: {
-        styleOverrides: {
-          root: {
-            color: 'rgba(28, 27, 32, 0.4)',
-            '.MuiPaginationItem-root.Mui-selected': {
-              background: 'transparent',
-              border: '1px solid #000',
-            },
           },
         },
       },

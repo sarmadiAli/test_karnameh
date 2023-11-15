@@ -2,7 +2,8 @@
   font-family: 'iransans';
   font-style: normal;
   font-weight: 400;
-  src: url('/static/assets/fonts/iransans/IRANSansWeb(FaNum)_Light.ttf')
+  src:
+    url('/static/assets/fonts/iransans/IRANSansWeb(FaNum)_Light.ttf')
       format('ttf'),
     url('/static/assets/fonts/iransans/IRANSansWeb(FaNum)_Light.eot')
       format('eot'),
@@ -15,7 +16,8 @@
   font-family: 'iransans';
   font-style: normal;
   font-weight: 500;
-  src: url('/static/assets/fonts/iransans/iransanswebmedium.ttf') format('ttf'),
+  src:
+    url('/static/assets/fonts/iransans/iransanswebmedium.ttf') format('ttf'),
     url('/static/assets/fonts/iransans/iransanswebmedium.eot') format('eot'),
     url('/static/assets/fonts/iransans/iransanswebmedium.woff') format('woff'),
     url('/static/assets/fonts/iransans/iransanswebmedium.woff2') format('woff2');
@@ -24,12 +26,12 @@
   font-family: 'iransans';
   font-style: normal;
   font-weight: 700;
-  src: url('/static/assets/fonts/iransans/iransanswebbold.ttf') format('ttf'),
+  src:
+    url('/static/assets/fonts/iransans/iransanswebbold.ttf') format('ttf'),
     url('/static/assets/fonts/iransans/iransanswebbold.eot') format('eot'),
     url('/static/assets/fonts/iransans/iransanswebbold.woff') format('woff'),
     url('/static/assets/fonts/iransans/iransanswebbold.woff2') format('woff2');
 }
-
 
 * {
   direction: rtl;
@@ -37,4 +39,16 @@
 }
 a {
   text-decoration: none;
+}
+
+body,
+html,
+#__next {
+  background: #f7f8f9;
+}
+
+main {
+  max-width: 1366px;
+  margin: auto;
+  padding: 32px 56px;
 }

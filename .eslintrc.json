@@ -10,7 +10,7 @@
       }
     ],
     "quotes": ["error", "single"],
-    "no-console": "warn",
+    "no-console": "error",
     "@typescript-eslint/no-explicit-any": 0
   }
 }

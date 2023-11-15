@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import Head from 'next/head';
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -14,9 +14,12 @@ export default function Home() {
           content="width=device-width, initial-scale=1.0, user-scalable=0"
         />
       </Head>
-      <main>
-        <Button variant="contained"> init</Button>
-      </main>
+      <div>ali</div>
     </>
   );
 }
+
+Home.setPageConfig = {
+  headerTitle: 'لیست سوالات',
+};
+export default Home;
