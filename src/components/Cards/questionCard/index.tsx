@@ -2,7 +2,7 @@ import React from 'react';
 import BaseCard from '../baseCard';
 import { Divider, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
-import svgIcon from 'public/message.svg';
+import svgIcon from './../../../../public/message.svg';
 
 const HeaderAk = (): React.ReactNode => {
   return (
