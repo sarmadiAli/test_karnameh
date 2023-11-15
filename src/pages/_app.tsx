@@ -39,7 +39,7 @@ export default function MyApp({
     <CacheProvider value={{ ...clientSideEmotionCache, ...cacheRtl }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient} contextSharing={true}>
           <Hydrate state={pageProps.dehydratedState}>
             <HeaderComponent title={rest?.pageConfig?.headerTitle} />
             <main>
