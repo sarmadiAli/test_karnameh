@@ -15,6 +15,9 @@ jobs:
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
+      
+      - name: Install Packages
+        run: npm install
 
       - name: Check lint
         run: npm run lint
