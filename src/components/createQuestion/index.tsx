@@ -2,20 +2,25 @@ import * as React from 'react';
 import Modal from '@mui/material/Modal';
 import BaseCard from '../Cards/baseCard';
 import {
+  Alert,
   Button,
   Grid,
   IconButton,
   InputLabel,
+  Snackbar,
   TextField,
   Typography,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller, useForm } from 'react-hook-form';
+import CircularProgress from '@mui/material/CircularProgress';
+import useCreateQuestion from '../../hooks/useCreateQuestion';
+type AlertColor = 'success' | 'error' | 'warning' | 'info';
 
 type BoxShadow = 'none' | string;
 type FormValues = {
   subject: string;
-  questionText: string;
+  body: string;
 };
 
 const style = {
@@ -44,12 +49,47 @@ export default function CreateQuestionModal({
   } = useForm<FormValues>({
     defaultValues: {
       subject: '',
-      questionText: '',
+      body: '',
     },
   });
-  // eslint-disable-next-line no-unused-vars
-  const onSubmit = (_: any) => {
-    // console.log('🚀 ~ file: index.tsx:38 ~ onSubmit ~ data:', data);
+  const { mutate: addMutate, isLoading } = useCreateQuestion();
+
+  const [snackbar, setSnackbar] = React.useState({
+    open: false,
+    severity: 'success',
+    title: '',
+  });
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackbar({
+      open: false,
+      severity: 'success',
+      title: '',
+    });
+  };
+
+  const onSubmit = (body: any) => {
+    const payloadReg = {
+      ...body,
+      create_at: new Date().getTime(),
+      img: '',
+    };
+
+    addMutate(payloadReg, {
+      onSuccess: () => {
+        setSnackbar({
+          open: true,
+          severity: 'success',
+          title: 'سوال شما با موفقیت اضافه شد',
+        });
+      },
+    });
   };
 
   return (
@@ -92,53 +132,90 @@ export default function CreateQuestionModal({
                 <Controller
                   name="subject"
                   control={control}
+                  rules={{
+                    required: {
+                      value: true,
+                      message: 'این فیلد الزامی است',
+                    },
+                  }}
                   render={({ field }) => (
                     <TextField
                       id="subject"
                       className="karnameTextFeild"
                       fullWidth
                       {...field}
-                      error={!!errors?.subject}
-                      helperText={errors?.subject?.message || null}
                     />
                   )}
                 />
+                {errors?.subject && (
+                  <Typography color={'red'}>
+                    {errors?.subject?.message}
+                  </Typography>
+                )}
               </Grid>
 
               <Grid xs={12} item mt={2}>
-                <InputLabel htmlFor="questionText">متن سوال</InputLabel>
+                <InputLabel htmlFor="body">متن سوال</InputLabel>
               </Grid>
               <Grid xs={12} item container>
                 <Controller
-                  name="questionText"
+                  name="body"
+                  rules={{
+                    required: {
+                      value: true,
+                      message: 'این فیلد الزامی است',
+                    },
+                  }}
                   control={control}
                   render={({ field }) => (
                     <TextField
-                      id="questionText"
+                      id="body"
                       className="karnameTextFeild"
                       fullWidth
                       {...field}
-                      error={!!errors?.questionText}
-                      helperText={errors?.questionText?.message || null}
                       minRows={8}
                       multiline
                     />
                   )}
                 />
+                {errors?.body && (
+                  <Typography color={'red'}>{errors?.body?.message}</Typography>
+                )}
               </Grid>
               <Grid xs={12} mt={4} item container justifyContent={'flex-end'}>
                 <Button
+                  onClick={closeModal}
                   sx={{ marginRight: '8px', padding: '8px 32px' }}
                   variant="text"
                 >
-                  انصراف
+                  <Typography variant="h6">انصراف</Typography>
                 </Button>
-                <Button variant="contained"> ایجاد سوال</Button>
+                <Button disabled={isLoading} type="submit" variant="contained">
+                  {' '}
+                  {isLoading ? (
+                    <CircularProgress />
+                  ) : (
+                    <Typography variant="h6">ایجاد سوال</Typography>
+                  )}
+                </Button>
               </Grid>
             </Grid>
           </form>
         </BaseCard>
       </Modal>
+      <Snackbar
+        open={snackbar?.open}
+        autoHideDuration={1000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={snackbar?.severity as AlertColor}
+          sx={{ width: '100%' }}
+        >
+          <Typography variant="h6"> {snackbar?.title}</Typography>
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

@@ -1,18 +1,19 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Grid } from '@mui/material';
-import usePosts from '../hooks/useQuestions';
-import { getPosts } from '../services';
+import usequestions from '../hooks/useQuestions';
+import { getQuestion } from '../services';
 import QuestionCard from '../components/Cards/questionCard';
+
 function Home() {
-  const { data, isLoading } = usePosts();
+  const { data, isLoading } = usequestions();
   if (isLoading) return <div>Loading</div>;
 
   return (
     <Grid container spacing={2}>
-      {data.map((data: any) => {
+      {data?.map((data: any) => {
         return (
           <Grid item xs={12} key={data.id}>
-            <QuestionCard />
+            <QuestionCard moreInfo={true} {...{ data }} />
           </Grid>
         );
       })}
@@ -27,8 +28,8 @@ export async function getServerSideProps() {
   const queryClient = new QueryClient();
 
   try {
-    const posts = await getPosts('/posts');
-    await queryClient.fetchQuery(['posts'], () => posts);
+    const questions = await getQuestion('/questions');
+    await queryClient.fetchQuery(['questions'], () => questions);
   } catch (error) {}
 
   return {

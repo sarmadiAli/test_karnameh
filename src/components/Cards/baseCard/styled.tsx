@@ -15,6 +15,6 @@ export const BaseCardStyled = styled(Card)`
       0px 3px 8px -1px rgba(50, 50, 71, 0.05);
   }
   .baseBaseHeader {
-    padding: 8px 16px;
+    padding: 19px 16px;
   }
 `;

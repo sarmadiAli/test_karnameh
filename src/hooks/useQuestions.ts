@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { getPosts } from '../services';
+import { getQuestion } from '../services';
 
-const usePosts = () => {
+const useQuestion = () => {
   return useQuery({
-    queryKey: ['posts'],
-    queryFn: () => getPosts('/posts'),
+    queryKey: ['questions'],
+    queryFn: () => getQuestion('/questions'),
   });
 };
 
-export default usePosts;
+export default useQuestion;

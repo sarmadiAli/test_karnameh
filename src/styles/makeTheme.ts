@@ -120,17 +120,6 @@ const makeTheme = (): { theme: Theme } => {
       keys: ['xs', 'sm', 'md', 'lg', 'xl'],
       values: breakpoints,
     },
-    components: {
-      MuiFormLabel: {
-        styleOverrides: {
-          root: {
-            color: '#454545',
-            fontWeight: 700,
-            fontSize: '12px',
-          },
-        },
-      },
-    },
   });
   theme = createTheme(theme, {
     components: {
@@ -152,9 +141,25 @@ const makeTheme = (): { theme: Theme } => {
             '&.Mui-disabled': {
               color: theme.palette.primary.main,
             },
+            '&.karnamehBtnFeadBack': {
+              padding: '8px 21px',
+              border: '1px solid #E4E9EC',
+              '& :hove': {
+                backgroundColor: 'red',
+              },
+            },
           },
           contained: {
             color: '#fff',
+          },
+        },
+      },
+      MuiFormLabel: {
+        styleOverrides: {
+          root: {
+            color: '#454545',
+            fontWeight: 700,
+            fontSize: '12px',
           },
         },
       },

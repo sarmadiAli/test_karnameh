@@ -14,7 +14,9 @@ import {
 import createEmotionCache from '../createEmotionCache';
 import makeTheme from '../styles/makeTheme';
 import HeaderComponent from '../components/header';
-const queryClient = new QueryClient();
+import { loadPersian } from 'moment-jalaali';
+
+loadPersian({ dialect: 'persian-modern' });
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -33,13 +35,13 @@ export default function MyApp({
     key: 'muirtl',
     stylisPlugins: [rtlPlugin],
   });
-  // const [queryClient] = React.useState(() => new QueryClient());
+  const [queryClient] = React.useState(() => new QueryClient());
 
   return (
     <CacheProvider value={{ ...clientSideEmotionCache, ...cacheRtl }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <QueryClientProvider client={queryClient} contextSharing={true}>
+        <QueryClientProvider client={queryClient}>
           <Hydrate state={pageProps.dehydratedState}>
             <HeaderComponent title={rest?.pageConfig?.headerTitle} />
             <main>
