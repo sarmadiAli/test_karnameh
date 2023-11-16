@@ -14,13 +14,24 @@ export default function HeaderComponent({ title }: { title?: string }) {
   return (
     <StyledBox>
       <Grid container className="headerContainer" alignItems={'center'}>
-        <Grid item width={'70%'}>
+        <Grid
+          item
+          width={{
+            xs: '30%',
+            md: '60%',
+            lg: '70%',
+          }}
+        >
           <Typography variant="subtitle1" component={'h3'}>
             {title}
           </Typography>
         </Grid>
         <Grid
-          width={'30%'}
+          width={{
+            xs: '70%',
+            md: '40%',
+            lg: '30%',
+          }}
           item
           container
           alignItems={'center'}
@@ -51,11 +62,7 @@ export default function HeaderComponent({ title }: { title?: string }) {
               src="/static/assets/img/alisarmadi.png"
               width={44}
               height={44}
-              style={{
-                borderRadius: '44px',
-                border: '2px solid  #E4E9EC',
-                marginLeft: '16px',
-              }}
+              className="profileImg"
               alt="Picture of the author"
             />
             <Typography

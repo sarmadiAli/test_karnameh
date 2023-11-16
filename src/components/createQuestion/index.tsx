@@ -11,6 +11,8 @@ import {
   Snackbar,
   TextField,
   Typography,
+  useMediaQuery,
+  Theme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller, useForm } from 'react-hook-form';
@@ -77,6 +79,10 @@ export default function CreateQuestionModal({
     });
   };
 
+  const isMobile = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down('md')
+  );
+
   return (
     <div>
       <Modal
@@ -87,7 +93,10 @@ export default function CreateQuestionModal({
       >
         <div>
           <BaseCard
-            style={modalStyle}
+            style={{
+              ...modalStyle,
+              width: isMobile ? '100%' : '770px',
+            }}
             header={
               <Grid
                 container

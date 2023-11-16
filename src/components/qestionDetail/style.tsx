@@ -10,4 +10,9 @@ export const StyleGrid = styled(Grid)`
     font-weight: 400;
     margin-left: 3px;
   }
+  .feedBackIconBtn {
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 3px;
+  }
 `;

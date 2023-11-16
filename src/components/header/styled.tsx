@@ -8,5 +8,13 @@ export const StyledBox = styled(Box)`
   .headerContainer {
     max-width: 1366px;
     padding: 16px 56px;
+    ${(props) => props.theme.breakpoints.down('sm')} {
+      padding: 16px;
+    }
+  }
+  .profileImg {
+    border-radius: 44px;
+    border: 2px solid #e4e9ec;
+    margin-right: 16px;
   }
 `;

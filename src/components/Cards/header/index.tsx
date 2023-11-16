@@ -12,7 +12,21 @@ const CardHeader = ({
   const time = moment(+data?.create_at).format('HH:mm');
   return (
     <Grid container alignItems={'center'}>
-      <Grid item xs={9} alignItems={'center'} container>
+      <Grid
+        sx={{
+          order: {
+            xs: '1',
+            md: '0',
+          },
+          marginTop: { xs: '5px' },
+        }}
+        item
+        xs={12}
+        md={8}
+        lg={9}
+        alignItems={'center'}
+        container
+      >
         <Image
           src="/static/assets/img/alisarmadi.png"
           width={32}
@@ -27,9 +41,14 @@ const CardHeader = ({
       </Grid>
       <Grid
         item
-        xs={3}
+        xs={12}
+        md={4}
+        lg={3}
         container
-        justifyContent={'space-between'}
+        justifyContent={{
+          xs: 'space-between',
+          lg: 'space-between',
+        }}
         alignItems={'center'}
       >
         <div style={{ display: 'flex', alignItems: 'center' }}>

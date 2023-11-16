@@ -117,10 +117,8 @@ export default function QestionDetail() {
                     }}
                     startIcon={
                       <SentimentDissatisfiedOutlinedIcon
+                        className="feedBackIconBtn"
                         style={{
-                          fontSize: '16px',
-                          fontWeight: '400',
-                          marginLeft: '3px',
                           color: 'red',
                         }}
                       />
@@ -138,11 +136,9 @@ export default function QestionDetail() {
                     }}
                     startIcon={
                       <SentimentSatisfiedOutlinedIcon
+                        className="feedBackIconBtn"
                         style={{
-                          fontSize: '18px',
-                          fontWeight: '400',
                           color: '#66CB9F',
-                          marginLeft: '3px',
                         }}
                       />
                     }

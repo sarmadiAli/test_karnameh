@@ -17,20 +17,28 @@
   font-style: normal;
   font-weight: 500;
   src:
-    url('../../public/static/assets/fonts/iransans/iransanswebmedium.ttf') format('ttf'),
-    url('../../public/static/assets/fonts/iransans/iransanswebmedium.eot') format('eot'),
-    url('../../public/static/assets/fonts/iransans/iransanswebmedium.woff') format('woff'),
-    url('../../public/static/assets/fonts/iransans/iransanswebmedium.woff2') format('woff2');
+    url('../../public/static/assets/fonts/iransans/iransanswebmedium.ttf')
+      format('ttf'),
+    url('../../public/static/assets/fonts/iransans/iransanswebmedium.eot')
+      format('eot'),
+    url('../../public/static/assets/fonts/iransans/iransanswebmedium.woff')
+      format('woff'),
+    url('../../public/static/assets/fonts/iransans/iransanswebmedium.woff2')
+      format('woff2');
 }
 @font-face {
   font-family: 'iransans';
   font-style: normal;
   font-weight: 700;
   src:
-    url('../../public/static/assets/fonts/iransans/iransanswebbold.ttf') format('ttf'),
-    url('../../public/static/assets/fonts/iransans/iransanswebbold.eot') format('eot'),
-    url('../../public/static/assets/fonts/iransans/iransanswebbold.woff') format('woff'),
-    url('../../public/static/assets/fonts/iransans/iransanswebbold.woff2') format('woff2');
+    url('../../public/static/assets/fonts/iransans/iransanswebbold.ttf')
+      format('ttf'),
+    url('../../public/static/assets/fonts/iransans/iransanswebbold.eot')
+      format('eot'),
+    url('../../public/static/assets/fonts/iransans/iransanswebbold.woff')
+      format('woff'),
+    url('../../public/static/assets/fonts/iransans/iransanswebbold.woff2')
+      format('woff2');
 }
 
 * {
@@ -51,4 +59,10 @@ main {
   max-width: 1366px;
   margin: auto;
   padding: 32px 56px;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 16px;
+  }
 }

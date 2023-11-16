@@ -77,7 +77,7 @@ const makeTheme = (): { theme: Theme } => {
         htmlFontSize: 14,
       },
       subtitle1: {
-        ...createFontSize(24, 18),
+        ...createFontSize(24, 14),
         fontWeight: 800,
       },
       subtitle2: {
@@ -95,12 +95,12 @@ const makeTheme = (): { theme: Theme } => {
         color: '#1C1B2066',
       },
       caption: {
-        fontSize: 12,
+        ...createFontSize(12, 10),
         fontWeight: 400,
         color: '#777',
       },
       h6: {
-        fontSize: 12,
+        ...createFontSize(12, 10),
         fontWeight: 700,
       },
     },
