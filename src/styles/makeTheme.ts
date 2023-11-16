@@ -141,7 +141,7 @@ const makeTheme = (): { theme: Theme } => {
             '&.Mui-disabled': {
               color: theme.palette.primary.main,
             },
-            '&.karnamehBtnFeadBack': {
+            '&.karnamehBtnfeedBack': {
               padding: '8px 21px',
               border: '1px solid #E4E9EC',
               '& :hove': {
