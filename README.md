@@ -1,54 +1,81 @@
-# test_karnameh
+# Project Title: Next.js with TypeScript for Task Senior Front-End Developer
 
-## Description
+## Overview
 
-This is a Next.js project that serves as test_karnameh. It includes a JSON server deployed on [https://api-wgi1.onrender.com](https://api-wgi1.onrender.com) to handle data. The frontend is deployed on Vercel at [https://test-karnameh.vercel.app/](https://test-karnameh.vercel.app/).
+This project is a Next.js application developed with TypeScript to fulfill the tasks assigned by karnameh Company. The deployment process involves a continuous integration/continuous deployment (CI/CD) pipeline from GitLab to Vercel.
 
-## Getting Started
 
-To get started with the project, follow these instructions:
 
-1. Clone the repository:
 
-    ```bash
-    git clone git@github.com:sarmadiAli/test_karnameh.git
-    ```
+## Deployment Process
 
-2. Install dependencies:
+### 1. Development Environment
+- Clone the repository:```bash git clone git@github.com:sarmadiAli/test_karnameh.git``` 
+- Install project dependencies using `npm install`.
+- Run the project locally using `npm run dev`.
+- Install Vercel CLI for local testing.
 
-    ```bash
-    npm install
-    ```
+### 2. Code Quality Checks
+- preCommit and prePust check Eslint and Test 
+- Ensure linting is in place by running `npm run lint`.
+- Run tests using `npm test` to ensure the codebase meets quality standards.
 
-3. Run the development server:
+### 3. CI/CD Workflow
 
-    ```bash
-    npm run dev
-    ```
+The CI/CD pipeline is triggered on GitHUb. The following steps are executed:
 
-## CI/CD Workflow
+#### Step 1: Pull Vercel Environment Information
 
-The project has a CI/CD workflow set up with GitHub Actions for Vercel. The workflow consists of 7 jobs:
+- Retrieve Vercel environment information.
 
-1. **Checkout Source**: Clones the repository to the GitHub Actions runner.
+#### Step 2: Build Project Artifacts
 
-2. **Run Dev on npm run dev**: Executes the development server.
+- Build project artifacts to prepare for deployment.
 
-3. **Install Vercel CLI**: Installs the Vercel CLI to interact with Vercel during the workflow.
+#### Step 3: Deploy Project Artifacts to Vercel
 
-4. **Install Packages**: Installs project dependencies.
+- Deploy project artifacts to Vercel using the Vercel CLI.
 
-5. **Check lint**: Checks the codebase for linting issues.
+### 4. Manual Deployment
 
-6. **Run Test**: Executes tests using the command `npm run test`.
+Deployment is also possible by pushing tags and updating the server.
 
-7. **Pull Vercel Environment Information, Build Project Artifacts, Deploy Project Artifacts to Vercel**: These jobs handle the deployment process to Vercel.
+- Push tags using `git push origin <tag_name>`.
+- Update the server with the latest changes.
 
-## Pre-commit and Pre-push Hooks
+## Accessing the Deployed Application
 
-The project is configured with pre-commit and pre-push hooks using the Husky package. This ensures that linting and tests are run before committing and pushing changes.
+The application is deployed at [https://test-karnameh.vercel.app/](https://test-karnameh.vercel.app/).
 
-To manually run tests:
+## Technologies Used
+
+- TypeScript
+- React 
+- Next 
+- react-query 
+- react-hook-form 
+- Material UI 
+- eslint 
+- husky 
+- lint-staged 
+- prettier
+- Jest React Test 
+
+
+## Server Information
+
+- JSON Server for web service: [https://api-wgi1.onrender.com](https://api-wgi1.onrender.com)
+
+## GitHub Repository
+
+- [GitHub Repository](https://github.com/sarmadiAli/api-vercel)
+
+## Cloning the Project
+
+To clone the project and run it locally:
 
 ```bash
-npm run test
+git clone https://github.com/sarmadiAli/api-vercel.git
+cd api-vercel
+npm install
+npm run dev
