@@ -39,6 +39,7 @@ export default function HeaderComponent({ title }: { title?: string }) {
         >
           <Grid item xs={4}>
             <Button
+              data-testid="modal"
               fullWidth
               sx={{ padding: '8px' }}
               variant="contained"

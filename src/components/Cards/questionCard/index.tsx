@@ -3,7 +3,7 @@ import BaseCard from '../baseCard';
 import { Button, Grid, Typography } from '@mui/material';
 import Link from 'next/link';
 import CardHeader from '../header';
-import svgIcon from './../../../../public/message.svg';
+import svgIcon from 'public/message.svg';
 import Image from 'next/image';
 
 export default function QuestionCard({ data, moreInfo }: any) {

@@ -17,10 +17,10 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import { Controller, useForm } from 'react-hook-form';
 import CircularProgress from '@mui/material/CircularProgress';
-import useCreateQuestion from '../../hooks/useCreateQuestion';
 import { FormValues, createQuestionContext, snackbarType } from './type';
 import { questionType } from '../globalType';
 import { modalStyle } from './style';
+import useCreateQuestion from 'src/hooks/useCreateQuestion';
 
 export default function CreateQuestionModal({
   isOpen,

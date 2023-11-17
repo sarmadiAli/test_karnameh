@@ -2,10 +2,13 @@ import { QueryClient, dehydrate } from '@tanstack/react-query';
 import React from 'react';
 import { getQuestionDetail } from '../../services';
 import { GetServerSidePropsContext } from 'next';
-import QestionDetail from '../../components/qestionDetail';
+import QestionDetail from 'src/components/qestionDetail';
+import { useParams } from 'next/navigation';
 
 function Questions() {
-  return <QestionDetail />;
+  const { id } = useParams();
+
+  return <QestionDetail id={id} />;
 }
 Questions.setPageConfig = {
   headerTitle: 'جزییات سوال',

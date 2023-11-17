@@ -4,7 +4,7 @@ import { CacheProvider, ThemeProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { CssBaseline } from '@mui/material';
-import './../styles/globals.css';
+import 'src/styles/globals.css';
 import App from 'next/app';
 import {
   Hydrate,
@@ -13,8 +13,8 @@ import {
 } from '@tanstack/react-query';
 import createEmotionCache from '../createEmotionCache';
 import makeTheme from '../styles/makeTheme';
-import HeaderComponent from '../components/header';
 import { loadPersian } from 'moment-jalaali';
+import HeaderComponent from 'src/components/header';
 
 loadPersian({ dialect: 'persian-modern' });
 

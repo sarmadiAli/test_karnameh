@@ -1,19 +1,17 @@
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
-import { useParams } from 'next/navigation';
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 import SentimentDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentDissatisfiedOutlined';
 import { Controller, useForm } from 'react-hook-form';
-import useEditQuestion from '../../hooks/useEditQuestion';
-import useQuestionDetail from '../../hooks/useQuestionDetail';
+import useQuestionDetail from 'src/hooks/useQuestionDetail';
 import { questionType } from '../globalType';
 import QuestionCard from '../Cards/questionCard';
 import BaseCard from '../Cards/baseCard';
 import CardHeader from '../Cards/header';
 import { StyleGrid } from './style';
+import useEditQuestion from 'src/hooks/useEditQuestion';
 
-export default function QestionDetail() {
-  const { id } = useParams();
+export default function QestionDetail({ id }: any) {
   const { data } = useQuestionDetail(id);
   const { mutate: editQuestion } = useEditQuestion(id);
   const {
@@ -181,6 +179,7 @@ export default function QestionDetail() {
                     {...field}
                     minRows={8}
                     multiline
+                    data-testid="karnameTextFeild"
                   />
                 )}
               />

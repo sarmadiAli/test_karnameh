@@ -1,15 +1,15 @@
 import { dehydrate, QueryClient } from '@tanstack/react-query';
 import { Grid } from '@mui/material';
-import usequestions from '../hooks/useQuestions';
-import { getQuestion } from '../services';
-import QuestionCard from '../components/Cards/questionCard';
+import usequestions from 'src/hooks/useQuestions';
+import { getQuestion } from 'src/services';
+import QuestionCard from 'src/components/Cards/questionCard';
 
 function Home() {
   const { data, isLoading } = usequestions();
   if (isLoading) return <div>Loading</div>;
 
   return (
-    <Grid container spacing={2}>
+    <Grid data-testid="akabr" container spacing={2}>
       {data?.map((data: any) => {
         return (
           <Grid item xs={12} key={data.id}>

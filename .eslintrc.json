@@ -1,6 +1,16 @@
 {
   "plugins": ["prettier"],
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/dom"
+  ],
+  "env": {
+    "jest": true
+  },
+
   "rules": {
     "no-undef": "error",
     "prettier/prettier": [
