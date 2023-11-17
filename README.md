@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Next.js application developed with TypeScript to fulfill the tasks assigned by karnameh Company. The deployment process involves a continuous integration/continuous deployment (CI/CD) pipeline from GitLab to Vercel.
+This project is a Next.js application developed with TypeScript to fulfill the tasks assigned by karnameh Company. The deployment process involves a continuous integration/continuous deployment (CI/CD) pipeline from GitHub to Vercel.
 
 
 
